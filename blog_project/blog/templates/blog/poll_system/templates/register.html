@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="form_register">Register Here!</h1>
+<form class='form-group' method="POST">
+  {% csrf_token %}
+  <label for="username">Username:</label>
+  <input type="text" name="username" placeholder="abc@123" class="form-control">
+  <label for="password">Password:</label>
+  <input type="password" name="password" class="form-control">
+  <input type="submit" value="Register!" class="btn btn-primary" style="margin-top:10px;">
+</form>
+{% endblock %}

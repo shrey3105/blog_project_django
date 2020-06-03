@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+{% extends 'blog/base.html' %}
+{% block content %}
+{% for post in post_list %}
+<h1>{{post.title}}</h1>
+<p>post.content</p>
+<div>
+  <a class='btn btn-default' href="{% url 'post_publish' pk=post.pk %}"><i class="fas fa-upload"></i></a>
+</div>
+<hr>
+{% endfor %}
+{% endblock %}

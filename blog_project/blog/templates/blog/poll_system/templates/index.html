@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="index_h1">Poll System : The Opinion That Matters.</h1>
+<div class="index_question">
+  {% for ques in questions %}
+  <h3> {{ques.question}} </h3>
+
+  <div class="options">
+    <ul>
+    {% for obj in ques.questions.all %}
+      <li> <a href="{% url 'inc_vote' pk=obj.pk %}">{{obj.option}}</a> </li>
+    {% endfor %}
+    </ul>
+    <p>Add option:</p>
+    <form action="{% url 'add_option' pk=ques.pk %}" method="GET" class='form-inline'>
+      <input type="text" name="option" placeholder="Add an option.." class='form-control'>
+      <input type="submit" value="Go" class='btn btn-sm btn-success'>
+    </form>
+  </div>
+  <button type="button" name="button" class="btn btn-sm btn-info index_result"> <a href="{% url 'result' pk=ques.pk %}" class="a_result"> Poll Result </a></button>
+  <hr>
+  {% endfor %}
+</div>
+
+<div class="add">
+  <form action="{% url 'add_ques' %}" method="GET" class='form-group'>
+      <input type="text" name="question" placeholder="Add a question..." class='form-control'>
+      <input type="submit" value="Add" class='btn btn-success btn-sm' style="margin-top:20px;">
+  </form>
+</div>
+
+{% endblock %}

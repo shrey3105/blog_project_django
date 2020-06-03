@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/js/medium-editor.min.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/medium-editor@latest/dist/css/medium-editor.min.css" type="text/css" media="screen" charset="utf-8">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@600&display=swap" rel="stylesheet">
+      <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+  </head>
+
+  <body class="loader">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light techfont">
+      <div class="container">
+        <a class="navbar-brand bigbrand" href="{% url 'post_list' %}">My Blog</a>
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'about' %}">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.github.com">Github</a>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'post_new' %}">New Post</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'drafts' %}">Drafts</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            </li>
+            <li class="nav-item">
+              <a class='nav-link' href="#">Welcome: {{user.username}}</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'login' %}">LogIn</a>
+            </li>
+            {% endif %}
+          </ul>
+      </div>
+    </nav>
+
+
+      <div class="container">
+        {% block content %}
+        {% endblock %}
+      </div>
+
+
+<script src="https://kit.fontawesome.com/ed597b65d5.js" crossorigin="anonymous"></script>
+  </body>
+</html>

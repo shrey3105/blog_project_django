@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block content %}
+<h1 class="result_h1" style="text-align:center;">{{q.question}} Results</h1>
+
+<table class="result_table">
+<tr>
+  <th>OPTION</th>
+  <th>VOTES</th>
+</tr>
+
+{% for obj in q.questions.all %}
+<tr>
+  <td>{{obj.option}}</td>
+  <td>{{obj.votes}}</td>
+</tr>
+{% endfor %}
+
+</table>
+{% endblock %}

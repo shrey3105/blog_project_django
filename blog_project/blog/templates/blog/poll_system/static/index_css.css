@@ -1,0 +1,72 @@
+
+body
+{
+  background-color:black;
+  color:white;
+  animation-name: example;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+.index_h1
+{
+  margin:20px auto;
+  text-align: center;
+
+}
+
+hr
+{
+  border:2px solid white;
+}
+
+.index_question
+{
+  margin-bottom: 20px;
+}
+
+input[type='submit']
+{
+  margin-left: 10px;
+}
+
+nav{
+  font-weight: 600;
+}
+
+.index_result
+{
+  margin-top: 10px;
+}
+
+.a_result
+{
+  color:white;
+}
+table
+{
+  text-align:center;
+  margin:20px auto;
+}
+
+th,td
+{
+  width:100px;
+  border:1px solid white;
+}
+
+result_h1
+{
+  margin-top: 20px;
+}
+
+@keyframes example{
+  from {
+    background-color:#203A43;
+  }
+
+  to {
+  background-color:#2C5364;
+  }
+}
